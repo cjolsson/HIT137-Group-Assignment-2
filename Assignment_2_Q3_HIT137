@@ -28,9 +28,9 @@ def main():
     screen.bgcolor("white")
 
     t = turtle.Turtle()
-    t.speed(20) # Sets drawing speed
+    t.speed(1) # Sets drawing speed
     t.color("brown") #Colour of the tree
-    t.left(90) #Sets the pointer upwards
+    t.left(90) #Rotates the pointer upwards
     t.up() # Instructs turtle to lift up the pen
     t.backward(200) # Instructs turtle to start 200 pixels from the middle of the screen
     t.down() # Brings pen back down to page
