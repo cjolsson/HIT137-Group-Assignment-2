@@ -31,9 +31,9 @@ def main():
     t.speed(20) # Sets drawing speed
     t.color("brown") #Colour of the tree
     t.left(90) #Sets the pointer upwards
-    t.up() # Instructs turtle to draw up
+    t.up() # Instructs turtle to lift up the pen
     t.backward(200) # Instructs turtle to start 200 pixels from the middle of the screen
-    t.down() # Brings pointer back down
+    t.down() # Brings pen back down to page
 
     draw_recursive_tree(t, branch_len * len_reduce, left_ang, right_ang, depth - 1, len_reduce)
 
