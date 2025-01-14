@@ -12,14 +12,34 @@ def draw_recursive_tree(t, branch_len, left_ang, right_ang, depth, len_reduce,):
         t.backward(branch_len) # Brings you back to the original orientation
 
 def user_input():
-    left_ang = float(input("Enter left branch angle (0-80): "))
-    right_ang = float(input("Enter right branch angle (0-80): "))
-    branch_len = float(input("Enter starting branch length (pixels, (50-200): "))
-    depth = int(input("Enter recursion depth (1-10) ie. The amount of times you would like the tree to branch out after the last drawn branch: "))
-    len_reduce =   float(input("Enter branch length reduction factor (A percentage between 0-1 ie .7): ")) 
-    trunk_colour = input("Enter the colour of the trunk: ").strip()
-    branch_colour = input("Enter the colour of the branches: ").strip()
-    return left_ang, right_ang, branch_len, depth, len_reduce, trunk_colour, branch_colour
+   while True:
+        try:
+            left_ang = float(input("Enter left branch angle (0-45): ")) # Maximum of 45 degrees ensures that the tree is more asthetically pleasing
+            if not (0 <= left_ang <= 45):
+                raise ValueError("Left branch angle must be between 0 and 45 degrees.")
+            
+            right_ang = float(input("Enter right branch angle (0-45): "))# Maximum of 45 degrees ensures that the tree is more asthetically pleasing
+            if not (0 <= right_ang <= 45):
+                raise ValueError("Right branch angle must be between 0 and 45 degrees.")
+            
+            branch_len = float(input("Enter starting branch length (pixels, 50-200): "))
+            if not (50 <= branch_len <= 200):
+                raise ValueError("Branch length must be between 50 and 200 pixels.")
+            
+            depth = int(input("Enter recursion depth (1-8)ie.The amount of times you would like the tree to branch out after the last drawn branch: "))
+            if not (1 <= depth <= 8):
+                raise ValueError("Recursion depth must be between 1 and 8:")
+            
+            len_reduce = float(input("Enter branch length reduction factor (A percentage between 0-1, ie .7): "))
+            if not (0 < len_reduce < 1):
+                raise ValueError("Branch length reduction factor must be between 0 and 1 (exclusive).")
+    
+            trunk_colour = input("Enter the colour of the trunk: ").strip()
+            branch_colour = input("Enter the colour of the branches: ").strip()
+            return left_ang, right_ang, branch_len, depth, len_reduce, trunk_colour, branch_colour
+        
+        except ValueError as e:# e = error message
+            print(e) 
 
 def main():
     left_ang, right_ang, branch_len, depth, len_reduce, trunk_colour, branch_colour = user_input()
