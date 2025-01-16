@@ -65,6 +65,12 @@ def main():
       g = open("encrypted_text.txt", 'w')
       g.write(encryptedText)
       g.close()
+
+      print("Success: Encryption and decryption succeeded.  Original text and decrypted text match")
+      
+   else:
+      
+      print("Error: Encryption and decryption failed.  Original text and decrypted text do not match")
       
 if __name__ == "__main__":
    main()
