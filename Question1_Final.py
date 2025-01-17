@@ -5,19 +5,19 @@ def en_de_crypt(textIn, m, n, oneOrMinusOne):
       denominator = 13 #Because there are 13 alphabetical characters from a to m, n to z, A to M and N to Z
       
       if   "a" <= inCharacter <= "m":
-
+        # Encrypt/decrypt characters between 'a' and 'm'.
          outCharacter = chr(((ord(inCharacter) - ord("a") + ((n * m)  * oneOrMinusOne)) % denominator) + ord("a"))
          
       elif "n" <= inCharacter <= "z":
-
+        # Encrypt/decrypt characters between 'n' and 'z'.
          outCharacter = chr(((ord(inCharacter) - ord("n") - ((n + m)  * oneOrMinusOne)) % denominator) + ord("n"))
          
       elif "A" <= inCharacter <= "M":
- 
+        # Encrypt/decrypt characters between 'A' and 'M'.
          outCharacter = chr(((ord(inCharacter) - ord("A") - (n        * oneOrMinusOne)) % denominator) + ord("A"))
          
       elif "N" <= inCharacter <= "Z":
-
+        # Encrypt/decrypt characters between 'N' and 'Z'.
          outCharacter = chr(((ord(inCharacter) - ord("N") + ((m ** 2) * oneOrMinusOne)) % denominator) + ord("N"))
          
       else:
@@ -26,13 +26,14 @@ def en_de_crypt(textIn, m, n, oneOrMinusOne):
          
       return outCharacter
 #-----------------------------------------------------------------------------------------------------------------
-   textOut = str()
+   
+   textOut = str()# Initialize an empty string to build the output text.
 
    for thisLetter in textIn:
 
       if ' ' <= thisLetter <= '~': #Only printable characters between space and tilde are acceptable
 
-         letterOut = thisLetter
+         letterOut = thisLetter # Loop through each character in the input text.
 
          if thisLetter.isupper() or thisLetter.islower(): #Only letters are encrypted or decrypted
 
@@ -65,9 +66,9 @@ def comparison(textRead, encryptedText, unEncryptedText): #Compares the original
       
       return False
 #-----------------------------------------------------------------------------------------------------------------
-def main():
+def main(): # Main function to execute the program.
 
-   m = int(input("Enter value of m: "))
+   m = int(input("Enter value of m: ")) # User input
    n = int(input("Enter value of n: "))
    
    if m == 0 and n == 0:
